@@ -56,4 +56,6 @@ def deduplicate(products):
         elif url:
             duplicates_removed += 1
             print(f"  [DEDUP] Duplicate removed: {url}")
+    if duplicates_removed > 0:
+        print(f"  [DEDUP] Total duplicates removed: {duplicates_removed}")
     return unique, duplicates_removed
