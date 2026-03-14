@@ -7,6 +7,7 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 }
 
+
 def safe_get(url, retries=3):
     for attempt in range(retries):
         try:
@@ -18,6 +19,7 @@ def safe_get(url, retries=3):
     print(f"  [ERROR] Could not fetch: {url}")
     return None
 
+
 def resolve_url(relative_url, base=BASE_URL):
     if not relative_url:
         return None
@@ -25,10 +27,12 @@ def resolve_url(relative_url, base=BASE_URL):
         return relative_url
     return urljoin(base, relative_url)
 
+
 def clean_text(text):
     if text is None:
         return ""
     return " ".join(text.strip().split())
+
 
 def clean_price(price_text):
     if not price_text:
@@ -38,6 +42,7 @@ def clean_price(price_text):
         return float(cleaned)
     except (ValueError, AttributeError):
         return None
+
 
 def deduplicate(products):
     seen_urls = set()
